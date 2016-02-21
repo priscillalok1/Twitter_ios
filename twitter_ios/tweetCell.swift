@@ -18,6 +18,8 @@ class tweetCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var thumbImageView: UIImageView!
+    @IBOutlet weak var retweetLabel: UILabel!
+    @IBOutlet weak var retweetTopConstraint: NSLayoutConstraint!
     
     var timeAtLoad: NSDate!
     
@@ -25,6 +27,12 @@ class tweetCell: UITableViewCell {
     
     var tweet: Tweet! {
         didSet {
+            if tweet.isRetweeted == true {
+                retweetLabel.text = (tweet.retweetedUser?.name)! + " Retweeted"
+            } else {
+                retweetLabel.text = "this tweet was not retweeted"
+                retweetTopConstraint.constant = -16
+            }
             thumbImageView.setImageWithURL(NSURL(string: (tweet.user?.profileImageUrl)!)!)
             nameLabel.text = tweet.user?.name
             usernameLabel.text = "@" + (tweet.user?.screenname)!
@@ -34,8 +42,15 @@ class tweetCell: UITableViewCell {
         }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        tweetLabel.preferredMaxLayoutWidth = tweetLabel.frame.width
+
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        tweetLabel.preferredMaxLayoutWidth = tweetLabel.frame.width
         // Initialization code
     }
 

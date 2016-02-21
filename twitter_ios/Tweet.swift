@@ -13,9 +13,21 @@ class Tweet: NSObject {
     var text: String?
     var createdAtString: String?
     var createdAt: NSDate?
+    var isRetweeted: Bool?
+    var retweetedUser: User?
     
     init(dictionary: NSDictionary) {
-        user = User(dictionary: dictionary["user"] as! NSDictionary)
+        isRetweeted = dictionary["retweeted_status"] != nil ? true: false
+        
+        if isRetweeted == true {
+            user = User(dictionary: dictionary["retweeted_status"]!["user"] as! NSDictionary)
+            retweetedUser = User(dictionary: dictionary["user"] as! NSDictionary)
+
+        } else {
+            user = User(dictionary: dictionary["user"] as! NSDictionary)
+            retweetedUser = nil
+        }
+        
         text = dictionary["text"] as? String
         createdAtString = dictionary["created_at"] as? String
         
