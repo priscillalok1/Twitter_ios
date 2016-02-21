@@ -8,11 +8,15 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, tweetCellDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, tweetCellDelegate, UIScrollViewDelegate {
     
     var tweets: [Tweet]?
     var retweetStates = [Int: Bool]()
     var favoriteStates = [Int: Bool]()
+    
+    var isMoreDataLoading = false
+    
+    var lastTweetId: Int?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,6 +35,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         TwitterClient.sharedInstance.homeTimelineWithCompletion(nil, completion: { (tweets, error) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
+            self.lastTweetId = self.tweets![(self.tweets?.count)!-1].id
         })
     
     }
@@ -52,11 +57,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         cell.tweet = tweets![indexPath.row]
         cell.delegate = self
         
-        cell.isRetweeted = tweets![indexPath.row].isRetweeted ?? false
-        cell.setRetweetButtonImage()
-        
-        cell.isFavorited = tweets![indexPath.row].isFavorited ?? false
-        cell.setFavoriteButtonImage()
+//        cell.isRetweeted = tweets![indexPath.row].isRetweeted ?? false
+//        cell.setRetweetButtonImage()
+//        
+//        cell.isFavorited = tweets![indexPath.row].isFavorited ?? false
+//        cell.setFavoriteButtonImage()
         
         return cell
     }
@@ -101,10 +106,35 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         TwitterClient.sharedInstance.homeTimelineWithCompletion(nil, completion: { (tweets, error) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
+            self.lastTweetId = self.tweets![(self.tweets?.count)!-1].id
             refreshControl.endRefreshing()
         })
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            // Calculate the position of one screen length before the bottom of the results
+            let scrollViewContentHeight = tableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+            
+            // When the user has scrolled past the threshold, start requesting
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.dragging) {
+                isMoreDataLoading = true
+                // Code to load more results
+                loadMoreData()
+            }
+        }
+    }
+    
+    func loadMoreData() {
+        TwitterClient.sharedInstance.homeTimelineWithCompletion(["max_id":lastTweetId!], completion: { (tweets, error) -> () in
+            self.isMoreDataLoading = false
+            for tweet in tweets!{
+                self.tweets?.append(tweet)
+            }
+            self.tableView.reloadData()
+        })
+    }
     
     // MARK: - Navigation
 

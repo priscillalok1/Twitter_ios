@@ -38,8 +38,6 @@ class tweetCell: UITableViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     
     weak var delegate: tweetCellDelegate?
-    var isRetweeted: Bool?
-    var isFavorited: Bool?
     
     var timeAtLoad: NSDate!
     
@@ -58,6 +56,7 @@ class tweetCell: UITableViewCell {
                 retweetTopConstraint.constant = -16
                 tweetLabel.text = tweet.text
             }
+            
             setRetweetButtonImage()
             setFavoriteButtonImage()
             thumbImageView.setImageWithURL(NSURL(string: (tweet.user?.profileImageUrl)!)!)
@@ -93,12 +92,11 @@ class tweetCell: UITableViewCell {
     
     //MARK: -Private Methods
     func retweetButtonPressed() {
-        isRetweeted = true
         delegate?.tweetedCell!(self, retweetButtonPressed: retweetButton.touchInside)
     }
     
     func setRetweetButtonImage() {
-        if isRetweeted == true {
+        if tweet.isRetweeted == true {
             retweetButton.setImage(UIImage(named: "retweet-true"), forState: UIControlState.Normal)
         } else {
             retweetButton.setImage(UIImage(named: "retweet"), forState: UIControlState.Normal)
@@ -106,12 +104,11 @@ class tweetCell: UITableViewCell {
     }
     
     func favoriteButtonPressed() {
-        isRetweeted = true
         delegate?.tweetedCell!(self, favoriteButtonPressed: favoriteButton.touchInside)
     }
     
     func setFavoriteButtonImage() {
-        if isFavorited == true {
+        if tweet.isFavorited == true {
             favoriteButton.setImage(UIImage(named: "star"), forState: UIControlState.Normal)
         } else {
             favoriteButton.setImage(UIImage(named: "star-unselected"), forState: UIControlState.Normal)
