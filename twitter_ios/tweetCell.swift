@@ -8,6 +8,15 @@
 
 import UIKit
 
+extension String {
+    public func indexOfCharacter(char: Character) -> Int? {
+        if let idx = self.characters.indexOf(char) {
+            return self.startIndex.distanceTo(idx)
+        }
+        return nil
+    }
+}
+
 @objc protocol tweetCellDelegate {
     optional func tweetedCell (tweetedCell: tweetCell, retweetButtonPressed value:Bool)
     optional func tweetedCell (tweetedCell: tweetCell, favoriteButtonPressed value:Bool)
@@ -40,15 +49,21 @@ class tweetCell: UITableViewCell {
         didSet {
             if tweet.isRetweeted == true {
                 retweetLabel.text = (tweet.retweetedUser?.name)! + " Retweeted"
+                let indexSemicolon = tweet.text?.indexOfCharacter(":")
+                let index1 = tweet.text?.startIndex.advancedBy(indexSemicolon! + 2)
+                let substring1 = tweet.text!.substringFromIndex(index1!)
+                tweetLabel.text = substring1
             } else {
                 retweetLabel.text = "this tweet was not retweeted"
                 retweetTopConstraint.constant = -16
+                tweetLabel.text = tweet.text
             }
+            setRetweetButtonImage()
+            setFavoriteButtonImage()
             thumbImageView.setImageWithURL(NSURL(string: (tweet.user?.profileImageUrl)!)!)
             nameLabel.text = tweet.user?.name
             usernameLabel.text = "@" + (tweet.user?.screenname)!
             timeLabel.text = formattedCreatedAtString(tweet.createdAt!)
-            tweetLabel.text = tweet.text
             favoriteCountLabel.text = String(tweet.favoriteCount!)
             retweetCountLabel.text = String(tweet.retweetCount!)
         }
@@ -64,7 +79,7 @@ class tweetCell: UITableViewCell {
         super.awakeFromNib()
         tweetLabel.preferredMaxLayoutWidth = tweetLabel.frame.width
         
-        retweetButton.addTarget(self, action: "tweetButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        retweetButton.addTarget(self, action: "retweetButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
         favoriteButton.addTarget(self, action: "favoriteButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
         
         // Initialization code
@@ -77,10 +92,8 @@ class tweetCell: UITableViewCell {
     }
     
     //MARK: -Private Methods
-    func tweetButtonPressed() {
-        TwitterClient.sharedInstance.retweetWithCompletion(["id": tweet.id!]) { (tweets, error) -> () in
-            print ("tweet was retweeted")
-        }
+    func retweetButtonPressed() {
+        isRetweeted = true
         delegate?.tweetedCell!(self, retweetButtonPressed: retweetButton.touchInside)
     }
     
@@ -93,6 +106,7 @@ class tweetCell: UITableViewCell {
     }
     
     func favoriteButtonPressed() {
+        isRetweeted = true
         delegate?.tweetedCell!(self, favoriteButtonPressed: favoriteButton.touchInside)
     }
     

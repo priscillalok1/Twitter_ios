@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 //
 //  TweetsViewController.swift
 //  twitter_ios
@@ -58,14 +49,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tweetCell", forIndexPath: indexPath) as! tweetCell
-    //    cell.accessoryType = UITableViewCellAccessoryNone
         cell.tweet = tweets![indexPath.row]
         cell.delegate = self
         
-        cell.isRetweeted = retweetStates[indexPath.row] ?? false
+        cell.isRetweeted = tweets![indexPath.row].isRetweeted ?? false
         cell.setRetweetButtonImage()
         
-        cell.isFavorited = favoriteStates[indexPath.row] ?? false
+        cell.isFavorited = tweets![indexPath.row].isFavorited ?? false
         cell.setFavoriteButtonImage()
         
         return cell
@@ -79,18 +69,27 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
     }
+    
     // MARK: - TweetCell Delegate Methods
     func tweetedCell(tweetedCell: tweetCell, retweetButtonPressed value: Bool) {
         let indexPath = tableView.indexPathForCell(tweetedCell)!
-        retweetStates[indexPath.row] = value
-        tableView.reloadData()
+        TwitterClient.sharedInstance.retweetWithCompletion(tweets![indexPath.row].id!) { (tweet, error) -> () in
+            if tweet != nil {
+                self.tweets![indexPath.row] = tweet!
+                self.tableView.reloadData()
+            }
+        }
 
     }
     
     func tweetedCell(tweetedCell: tweetCell, favoriteButtonPressed value: Bool) {
         let indexPath = tableView.indexPathForCell(tweetedCell)!
-        favoriteStates[indexPath.row] = value
-        tableView.reloadData()
+        TwitterClient.sharedInstance.favoriteWithCompletion(tweets![indexPath.row].id) { (tweet, error) -> () in
+            if tweet != nil {
+                self.tweets![indexPath.row] = tweet!
+                self.tableView.reloadData()
+            }
+        }
         
     }
     // MARK: - Refresh Methods
@@ -117,6 +116,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             let indexPath: NSIndexPath = tableView.indexPathForSelectedRow!
             let detailViewController = segue.destinationViewController as! TweetDetailViewController
             detailViewController.tweet = self.tweets![indexPath.row]
+        } else if segue.identifier == "replyTweetSegue" {
+            
         }
     }
 

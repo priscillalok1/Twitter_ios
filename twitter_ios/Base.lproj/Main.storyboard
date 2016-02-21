@@ -250,8 +250,20 @@
                                 <color key="textColor" red="0.52882339020000002" green="0.52882339020000002" blue="0.52882339020000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="characters left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVN-VP-xQZ">
+                                <rect key="frame" x="228" y="125" width="77" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.52882339020000002" green="0.52882339020000002" blue="0.52882339020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUN-Vc-ZVf">
+                                <rect key="frame" x="204" y="125" width="21" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.52882339020000002" green="0.52882339020000002" blue="0.52882339020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="New Tweet!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xz2-Lp-MAo">
-                                <rect key="frame" x="15" y="131" width="290" height="205"/>
+                                <rect key="frame" x="15" y="141" width="290" height="205"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -259,18 +271,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Gas-C1-nCW" firstAttribute="top" secondItem="xz2-Lp-MAo" secondAttribute="bottom" constant="232" id="10y-pc-s5S"/>
                             <constraint firstItem="bng-kf-jHg" firstAttribute="leading" secondItem="LWe-23-Nxw" secondAttribute="trailing" constant="8" id="53u-po-gQe"/>
                             <constraint firstItem="7Ax-UR-PDT" firstAttribute="leading" secondItem="LWe-23-Nxw" secondAttribute="trailing" constant="8" id="5ER-Kk-0xm"/>
+                            <constraint firstItem="YVN-VP-xQZ" firstAttribute="centerY" secondItem="qUN-Vc-ZVf" secondAttribute="centerY" id="5f8-fU-4Qf"/>
                             <constraint firstItem="7Ax-UR-PDT" firstAttribute="leading" secondItem="bng-kf-jHg" secondAttribute="leading" id="6fr-kR-ef3"/>
-                            <constraint firstItem="xz2-Lp-MAo" firstAttribute="top" secondItem="7Ax-UR-PDT" secondAttribute="bottom" constant="14" id="9G2-rY-wDp"/>
                             <constraint firstItem="bng-kf-jHg" firstAttribute="top" secondItem="Zme-Js-rOf" secondAttribute="bottom" constant="14" id="HIE-ro-FDf"/>
+                            <constraint firstItem="YVN-VP-xQZ" firstAttribute="leading" secondItem="qUN-Vc-ZVf" secondAttribute="trailing" constant="3" id="JUL-4x-6mi"/>
+                            <constraint firstItem="YVN-VP-xQZ" firstAttribute="leading" secondItem="qUN-Vc-ZVf" secondAttribute="trailing" constant="3" id="Kcm-9Q-1fZ"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bng-kf-jHg" secondAttribute="trailing" constant="15" id="MQ9-Bo-HBe"/>
                             <constraint firstItem="LWe-23-Nxw" firstAttribute="top" secondItem="Zme-Js-rOf" secondAttribute="bottom" constant="14" id="Qlz-QO-exO"/>
                             <constraint firstItem="LWe-23-Nxw" firstAttribute="leading" secondItem="grk-zR-igQ" secondAttribute="leading" constant="15" id="V1q-5O-xAM"/>
                             <constraint firstItem="7Ax-UR-PDT" firstAttribute="top" secondItem="bng-kf-jHg" secondAttribute="bottom" constant="5" id="Zx7-Ka-jj2"/>
-                            <constraint firstItem="xz2-Lp-MAo" firstAttribute="top" secondItem="LWe-23-Nxw" secondAttribute="bottom" constant="8" id="fqC-Um-Pvu"/>
+                            <constraint firstAttribute="trailing" secondItem="YVN-VP-xQZ" secondAttribute="trailing" constant="15" id="clb-dK-9FG"/>
+                            <constraint firstItem="YVN-VP-xQZ" firstAttribute="top" secondItem="Zme-Js-rOf" secondAttribute="bottom" constant="61" id="h3l-Nh-Scn"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7Ax-UR-PDT" secondAttribute="trailing" constant="15" id="hbL-y4-9OO"/>
+                            <constraint firstItem="xz2-Lp-MAo" firstAttribute="top" secondItem="YVN-VP-xQZ" secondAttribute="bottom" constant="2" id="pMY-s2-82N"/>
+                            <constraint firstItem="Gas-C1-nCW" firstAttribute="top" secondItem="xz2-Lp-MAo" secondAttribute="bottom" constant="222" id="roP-dw-dN8"/>
                             <constraint firstItem="xz2-Lp-MAo" firstAttribute="leading" secondItem="grk-zR-igQ" secondAttribute="leading" constant="15" id="u1i-Vr-NSs"/>
                             <constraint firstAttribute="trailing" secondItem="xz2-Lp-MAo" secondAttribute="trailing" constant="15" id="vvx-EN-Xev"/>
                         </constraints>
@@ -288,6 +304,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="charCountLabel" destination="qUN-Vc-ZVf" id="1cv-kd-FWz"/>
                         <outlet property="nameLabel" destination="bng-kf-jHg" id="DAT-dq-JG1"/>
                         <outlet property="newTweetText" destination="xz2-Lp-MAo" id="n4H-tA-0j0"/>
                         <outlet property="thumImageView" destination="LWe-23-Nxw" id="rJi-7s-TkD"/>
