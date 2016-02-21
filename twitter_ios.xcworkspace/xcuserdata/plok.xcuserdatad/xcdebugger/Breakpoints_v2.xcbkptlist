@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/AppDelegate.swift"
-            timestampString = "477638563.821922"
+            timestampString = "477717342.771099"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -94,11 +94,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/TweetsViewController.swift"
-            timestampString = "477698619.438234"
+            timestampString = "477739636.479904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -110,11 +110,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/TweetsViewController.swift"
-            timestampString = "477698619.438234"
+            timestampString = "477739636.479904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
             <Locations>
@@ -158,11 +158,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/Tweet.swift"
-            timestampString = "477709246.676561"
+            timestampString = "477741483.520145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "tweetsWithArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -179,8 +179,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "homeTimelineWithCompletion(_:completion:)"
-            landmarkType = "5">
+            landmarkName = "TwitterClient"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -318,7 +318,7 @@
                   moduleName = "twitter_ios"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/plok/Projects/codePath/twitter_ios/twitter_ios/TwitterClient.swift"
-                  timestampString = "477655983.753597"
+                  timestampString = "477741096.021829"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "32"
@@ -333,27 +333,12 @@
                   moduleName = "twitter_ios"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/plok/Projects/codePath/twitter_ios/twitter_ios/TwitterClient.swift"
-                  timestampString = "477655983.753821"
+                  timestampString = "477741096.022421"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "32"
                   endingLineNumber = "32"
-                  offsetFromSymbolStart = "719">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "twitter_ios.TwitterClient.(homeTimelineWithCompletion (twitter_ios.TwitterClient) -&gt; (Swift.Optional&lt;__ObjC.NSDictionary&gt;, completion : (tweets : Swift.Optional&lt;Swift.Array&lt;twitter_ios.Tweet&gt;&gt;, error : Swift.Optional&lt;__ObjC.NSError&gt;) -&gt; ()) -&gt; ()).(closure #2)"
-                  moduleName = "twitter_ios"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/plok/Projects/codePath/twitter_ios/twitter_ios/TwitterClient.swift"
-                  timestampString = "477655983.754"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "31">
+                  offsetFromSymbolStart = "326">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -429,11 +414,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/TwitterClient.swift"
-            timestampString = "477655837.701008"
+            timestampString = "477733347.832706"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "homeTimelineWithCompletion(_:completion:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -445,11 +430,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/TweetsViewController.swift"
-            timestampString = "477698619.438234"
+            timestampString = "477739636.479904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -461,11 +446,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/TweetsViewController.swift"
-            timestampString = "477698619.438234"
+            timestampString = "477739636.479904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -477,11 +462,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/TweetsViewController.swift"
-            timestampString = "477698619.438234"
+            timestampString = "477738547.042909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -493,11 +478,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -509,11 +494,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -525,11 +510,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/Tweet.swift"
-            timestampString = "477709246.676561"
+            timestampString = "477741483.520145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "init(dictionary:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -541,11 +526,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/Tweet.swift"
-            timestampString = "477709246.676561"
+            timestampString = "477741483.520145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "init(dictionary:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -557,11 +542,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -573,11 +558,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -589,11 +574,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -605,11 +590,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -621,11 +606,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -637,11 +622,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -653,11 +638,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -669,11 +654,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -685,11 +670,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -701,11 +686,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -717,11 +702,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -733,11 +718,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -749,11 +734,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitter_ios/tweetCell.swift"
-            timestampString = "477713578.348288"
+            timestampString = "477741094.973487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "formattedCreatedAtString(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -786,6 +771,150 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6"
             endingLineNumber = "6">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "twitter_ios/TweetsViewController.swift"
+            timestampString = "477741094.973487"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "twitter_ios/TweetsViewController.swift"
+            timestampString = "477741094.973487"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "twitter_ios/TweetsViewController.swift"
+            timestampString = "477741094.973487"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "twitter_ios/TweetsViewController.swift"
+            timestampString = "477741094.973487"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "twitter_ios/TweetsViewController.swift"
+            timestampString = "477739636.479904"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "twitter_ios/tweetCell.swift"
+            timestampString = "477741094.973487"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "setRetweetButtonImage()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "twitter_ios/TweetsViewController.swift"
+            timestampString = "477738547.042909"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "TweetsViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "twitter_ios/tweetCell.swift"
+            timestampString = "477739636.479904"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "awakeFromNib()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "twitter_ios/tweetCell.swift"
+            timestampString = "477741094.973487"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "tweetButtonPressed()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

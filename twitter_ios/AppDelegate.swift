@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+        let font = UIFont(name: "HelveticaNeue-bold", size: 20)
+        navigationBarAppearace.titleTextAttributes = [NSFontAttributeName : font!, NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
         // Override point for customization after application launch.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
         if User.currentUser != nil {

@@ -8,11 +8,15 @@
 
 import UIKit
 
+@objc protocol tweetCellDelegate {
+    optional func tweetedCell (tweetedCell: tweetCell, retweetButtonPressed value:Bool)
+    optional func tweetedCell (tweetedCell: tweetCell, favoriteButtonPressed value:Bool)
+}
+
 class tweetCell: UITableViewCell {
 
-    @IBOutlet weak var starImage: UIImageView!
-    @IBOutlet weak var retweetImage: UIImageView!
-    @IBOutlet weak var replyImage: UIImageView!
+    @IBOutlet weak var favoriteCountLabel: UILabel!
+    @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var tweetLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -20,6 +24,13 @@ class tweetCell: UITableViewCell {
     @IBOutlet weak var thumbImageView: UIImageView!
     @IBOutlet weak var retweetLabel: UILabel!
     @IBOutlet weak var retweetTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
+    weak var delegate: tweetCellDelegate?
+    var isRetweeted: Bool?
+    var isFavorited: Bool?
     
     var timeAtLoad: NSDate!
     
@@ -38,7 +49,8 @@ class tweetCell: UITableViewCell {
             usernameLabel.text = "@" + (tweet.user?.screenname)!
             timeLabel.text = formattedCreatedAtString(tweet.createdAt!)
             tweetLabel.text = tweet.text
-            
+            favoriteCountLabel.text = String(tweet.favoriteCount!)
+            retweetCountLabel.text = String(tweet.retweetCount!)
         }
     }
     
@@ -51,6 +63,10 @@ class tweetCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         tweetLabel.preferredMaxLayoutWidth = tweetLabel.frame.width
+        
+        retweetButton.addTarget(self, action: "tweetButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        favoriteButton.addTarget(self, action: "favoriteButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        
         // Initialization code
     }
 
@@ -61,6 +77,32 @@ class tweetCell: UITableViewCell {
     }
     
     //MARK: -Private Methods
+    func tweetButtonPressed() {
+        TwitterClient.sharedInstance.retweetWithCompletion(["id": tweet.id!]) { (tweets, error) -> () in
+            print ("tweet was retweeted")
+        }
+        delegate?.tweetedCell!(self, retweetButtonPressed: retweetButton.touchInside)
+    }
+    
+    func setRetweetButtonImage() {
+        if isRetweeted == true {
+            retweetButton.setImage(UIImage(named: "retweet-true"), forState: UIControlState.Normal)
+        } else {
+            retweetButton.setImage(UIImage(named: "retweet"), forState: UIControlState.Normal)
+        }
+    }
+    
+    func favoriteButtonPressed() {
+        delegate?.tweetedCell!(self, favoriteButtonPressed: favoriteButton.touchInside)
+    }
+    
+    func setFavoriteButtonImage() {
+        if isFavorited == true {
+            favoriteButton.setImage(UIImage(named: "star"), forState: UIControlState.Normal)
+        } else {
+            favoriteButton.setImage(UIImage(named: "star-unselected"), forState: UIControlState.Normal)
+        }
+    }
     
     func formattedCreatedAtString (date: NSDate) -> String {
         var formattedDateString = ""

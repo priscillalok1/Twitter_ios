@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 //
 //  TweetsViewController.swift
 //  twitter_ios
@@ -8,9 +17,11 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, tweetCellDelegate {
     
     var tweets: [Tweet]?
+    var retweetStates = [Int: Bool]()
+    var favoriteStates = [Int: Bool]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -47,7 +58,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tweetCell", forIndexPath: indexPath) as! tweetCell
+    //    cell.accessoryType = UITableViewCellAccessoryNone
         cell.tweet = tweets![indexPath.row]
+        cell.delegate = self
+        
+        cell.isRetweeted = retweetStates[indexPath.row] ?? false
+        cell.setRetweetButtonImage()
+        
+        cell.isFavorited = favoriteStates[indexPath.row] ?? false
+        cell.setFavoriteButtonImage()
+        
         return cell
     }
     
@@ -57,6 +77,20 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         } else {
             return tweets!.count
         }
+        
+    }
+    // MARK: - TweetCell Delegate Methods
+    func tweetedCell(tweetedCell: tweetCell, retweetButtonPressed value: Bool) {
+        let indexPath = tableView.indexPathForCell(tweetedCell)!
+        retweetStates[indexPath.row] = value
+        tableView.reloadData()
+
+    }
+    
+    func tweetedCell(tweetedCell: tweetCell, favoriteButtonPressed value: Bool) {
+        let indexPath = tableView.indexPathForCell(tweetedCell)!
+        favoriteStates[indexPath.row] = value
+        tableView.reloadData()
         
     }
     // MARK: - Refresh Methods
@@ -79,10 +113,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "newTweetsSegue" {
          //   let navigationcontroller = segue.destinationViewController as! UINavigationController
+        } else if segue.identifier == "tweetDetailSegue" {
+            let indexPath: NSIndexPath = tableView.indexPathForSelectedRow!
+            let detailViewController = segue.destinationViewController as! TweetDetailViewController
+            detailViewController.tweet = self.tweets![indexPath.row]
         }
     }
 
-    
-    
 
 }

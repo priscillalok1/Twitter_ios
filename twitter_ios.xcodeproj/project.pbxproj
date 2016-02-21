@@ -18,6 +18,7 @@
 		53F96A2D1C78302D00663573 /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F96A2C1C78302D00663573 /* TweetsViewController.swift */; };
 		53F96A321C78515F00663573 /* tweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F96A311C78515F00663573 /* tweetCell.swift */; };
 		53F96A351C79261C00663573 /* NewTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F96A341C79261C00663573 /* NewTweetViewController.swift */; };
+		53F96A371C79857400663573 /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F96A361C79857400663573 /* TweetDetailViewController.swift */; };
 		9B8B0C14FAF115224A35A849 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DD7E4DEE10FF545BAA3ABE /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		53F96A2C1C78302D00663573 /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		53F96A311C78515F00663573 /* tweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tweetCell.swift; sourceTree = "<group>"; };
 		53F96A341C79261C00663573 /* NewTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTweetViewController.swift; sourceTree = "<group>"; };
+		53F96A361C79857400663573 /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
 		5DBF3A08A49DBA91777ED9F4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 				53F96A141C76D1B500663573 /* ViewController.swift */,
 				53F96A2C1C78302D00663573 /* TweetsViewController.swift */,
 				53F96A341C79261C00663573 /* NewTweetViewController.swift */,
+				53F96A361C79857400663573 /* TweetDetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			files = (
 				53F96A321C78515F00663573 /* tweetCell.swift in Sources */,
 				53F96A351C79261C00663573 /* NewTweetViewController.swift in Sources */,
+				53F96A371C79857400663573 /* TweetDetailViewController.swift in Sources */,
 				53F96A291C781E3100663573 /* User.swift in Sources */,
 				53F96A2B1C781E4E00663573 /* Tweet.swift in Sources */,
 				53F96A2D1C78302D00663573 /* TweetsViewController.swift in Sources */,

@@ -9,6 +9,8 @@
 import UIKit
 import BDBOAuth1Manager
 
+
+
 let twitterConsumerKey = "jy1BF8oyeoH4tS1TMhtO85lts"
 let twitterConsumerSecret = "3I7SBgcWChGC2IOUy9f0xhx3QrAXTRTccv90SfyTNOEfV26j71"
 let twitterBaseURL = NSURL(string: "https://api.twitter.com")
@@ -26,7 +28,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     func homeTimelineWithCompletion(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
         GET("1.1/statuses/home_timeline.json", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
-            print("home timeline:\(response)")
+//            print("home timeline:\(response)")
             let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
             completion(tweets: tweets, error: nil)
             }, failure: { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -34,6 +36,15 @@ class TwitterClient: BDBOAuth1SessionManager {
                 completion(tweets: nil, error: error)
         })
     }
+    
+//    func retweetWithCompletion(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+//        POST("1.1/statuses/retweet", parameters: params, progress: nil, success: { (operation: AFHTTPRequestOperation, response: AnyObject?) -> Void in
+//            print("retweet:\(response)")
+//            }, failure: { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+//                print("error retweeting")
+//                completion(tweets: nil, error: error)
+//        })
+//    }
     
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {
         loginCompletion = completion
