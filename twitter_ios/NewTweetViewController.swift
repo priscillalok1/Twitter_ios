@@ -48,6 +48,9 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
             newTweetText.text = newTweet
         }
         newTweetText.delegate = self
+        
+        thumImageView.layer.cornerRadius = 3
+        thumImageView.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

@@ -78,6 +78,10 @@ class tweetCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = UITableViewCellSelectionStyle.None
+        
+        thumbImageView.layer.cornerRadius = 3
+        thumbImageView.clipsToBounds = true
+        
         tweetLabel.preferredMaxLayoutWidth = tweetLabel.frame.width
         
         retweetButton.addTarget(self, action: "retweetButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)

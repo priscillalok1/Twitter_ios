@@ -49,6 +49,9 @@ class TweetDetailViewController: UIViewController {
             tweetLabel.text = tweet.text
             retweetsNumberLabel.text = String(tweet.retweetCount!)
             favoritesNumberLabel.text = String(tweet.favoriteCount!)
+            
+            thumbImageView.layer.cornerRadius = 3
+            thumbImageView.clipsToBounds = true
         }
         
     }

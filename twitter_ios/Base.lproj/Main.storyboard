@@ -18,13 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwn-ML-MDb">
-                                <rect key="frame" x="99" y="256" width="122" height="30"/>
-                                <state key="normal" title="Login with Twitter"/>
-                                <connections>
-                                    <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r5F-CX-VAf"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="heb-wT-BWi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwn-ML-MDb">
+                                        <rect key="frame" x="54" y="319" width="213" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" red="0.20979327270000001" green="0.42578254250000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r5F-CX-VAf"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TwitterLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Tdz-zp-F2g">
+                                        <rect key="frame" x="58" y="97" width="204" height="192"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20979327270000001" green="0.42578254250000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -34,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162.66666666666666" y="406.59333333333331"/>
+            <point key="canvasLocation" x="162" y="406"/>
         </scene>
         <!--Twitter-->
         <scene sceneID="h1I-lt-48f">
@@ -561,6 +574,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="TwitterLogo" width="144" height="144"/>
         <image name="cancelButton" width="25" height="25"/>
         <image name="composeIcon" width="25" height="25"/>
         <image name="reply" width="32" height="32"/>
