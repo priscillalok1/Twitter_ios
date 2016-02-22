@@ -24,7 +24,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let logo = UIImage(named: "TwitterLogo.png")
+        let logo = UIImage(named: "TwitterLogo-1.png")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         
