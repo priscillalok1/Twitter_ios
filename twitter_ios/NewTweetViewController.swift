@@ -32,7 +32,7 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         nameLabel.text = User.currentUser?.name
-        usernameLabel.text = User.currentUser?.screenname
+        usernameLabel.text = "@" + (User.currentUser?.screenname)!
         thumImageView.setImageWithURL(NSURL(string: (User.currentUser?.profileImageUrl)!)!)
         if newTweet == nil {
             charCount = 140
@@ -47,10 +47,7 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         } else {
             newTweetText.text = newTweet
         }
-        
-        
         newTweetText.delegate = self
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,12 +60,6 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         charCount = 140-currCharCount
         charCountLabel.text = String(charCount!)
         newTweet = newTweetText.text
-        
-        if charCount < 0 {
-            newTweetText.editable = false
-        } else {
-            newTweetText.editable = true
-        }
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {
@@ -78,15 +69,6 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
     @IBAction func tweetButtonClicked(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
         self.delegate?.newTweetViewController!(self, didCreateTweet: newTweet!)
-//        TwitterClient.sharedInstance.tweetWithCompletion(["status": self.newTweet!]) { (tweet, error) -> () in
-//            if tweet != nil {
-//                if self.isReplyTweet == false {
-//                    
-//                }
-//                print("new tweet created")
-//                //do something with newly created reply tweet
-//            }
-//        }
     }
     
     /*

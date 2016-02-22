@@ -24,6 +24,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let logo = UIImage(named: "TwitterLogo.png")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
@@ -74,29 +78,70 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     // MARK: - TweetCell Delegate Methods
     func tweetedCell(tweetedCell: tweetCell, retweetButtonPressed value: Bool) {
         let indexPath = tableView.indexPathForCell(tweetedCell)!
-        TwitterClient.sharedInstance.retweetWithCompletion(tweets![indexPath.row].id!) { (tweet, error) -> () in
-            if tweet != nil {
-                self.tweets![indexPath.row] = tweet!
-                self.tableView.reloadData()
+        
+        if tweetedCell.tweet.isCurrUserRetweeted == true {
+            unretweet(tweetedCell.tweet, index: indexPath)
+        } else {
+            TwitterClient.sharedInstance.retweetWithCompletion(tweets![indexPath.row].id!) { (tweet, error) -> () in
+                if tweet != nil {
+                    TwitterClient.sharedInstance.getTweetWithCompletion(tweetedCell.tweet.id_str!, params: nil, completion: { (tweet, error) -> () in
+                        self.tweets![indexPath.row] = tweet!
+                        self.tableView.reloadData()
+                    })
+                }
             }
         }
-
     }
     
     func tweetedCell(tweetedCell: tweetCell, favoriteButtonPressed value: Bool) {
         let indexPath = tableView.indexPathForCell(tweetedCell)!
-        TwitterClient.sharedInstance.favoriteWithCompletion(tweets![indexPath.row].id) { (tweet, error) -> () in
-            if tweet != nil {
-                self.tweets![indexPath.row] = tweet!
-                self.tableView.reloadData()
+        
+        if tweetedCell.tweet.isFavorited == true {
+            unfavorite(tweetedCell.tweet, index: indexPath)
+        } else {
+            TwitterClient.sharedInstance.favoriteWithCompletion(tweets![indexPath.row].id) { (tweet, error) -> () in
+                if tweet != nil {
+                    self.tweets![indexPath.row] = tweet!
+                    self.tableView.reloadData()
+                }
             }
         }
-        
     }
     
     func tweetedCell(tweetedCell: tweetCell, replyButtonPressed value: Bool) {
         replyUser = tweetedCell.tweet.user
         self.performSegueWithIdentifier("newTweetSegue", sender: self)
+    }
+    
+    //MARK: - Private methods
+    func unretweet(tweet: Tweet, index: NSIndexPath) {
+        var tweetId = ""
+        if tweet.isRetweeted == false {
+            tweetId = tweet.id_str!
+        } else {
+            tweetId = tweet.originalTweetId_str!
+        }
+        TwitterClient.sharedInstance.getTweetWithCompletion(tweetId, params: ["include_my_retweet":true]) { (tweet, error) -> () in
+            let retweetId = tweet?.retweetId_str
+            TwitterClient.sharedInstance.deleteTweetWithCompletion(retweetId!, completion: { (tweet, error) -> () in
+                print("tweet successfully deleted")
+                TwitterClient.sharedInstance.getTweetWithCompletion(tweetId, params: nil, completion: { (tweet, error) -> () in
+                    self.tweets![index.row] = tweet!
+                    self.tableView.reloadData()
+                })
+                
+            })
+        }
+    }
+    
+    func unfavorite(tweet: Tweet, index: NSIndexPath) {
+        TwitterClient.sharedInstance.deleteFavoriteWithCompletion(tweet.id!) { (tweet, error) -> () in
+            print ("tweet favorited successfully deleted")
+            TwitterClient.sharedInstance.getTweetWithCompletion((tweet?.id_str)!, params: nil, completion: { (tweet, error) -> () in
+                self.tweets![index.row] = tweet!
+                self.tableView.reloadData()
+            })
+        }
     }
     
     

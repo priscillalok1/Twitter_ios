@@ -58,7 +58,6 @@ class tweetCell: UITableViewCell {
                 retweetTopConstraint.constant = -16
                 tweetLabel.text = tweet.text
             }
-            
             setRetweetButtonImage()
             setFavoriteButtonImage()
             thumbImageView.setImageWithURL(NSURL(string: (tweet.user?.profileImageUrl)!)!)
@@ -78,6 +77,7 @@ class tweetCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = UITableViewCellSelectionStyle.None
         tweetLabel.preferredMaxLayoutWidth = tweetLabel.frame.width
         
         retweetButton.addTarget(self, action: "retweetButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
@@ -97,7 +97,7 @@ class tweetCell: UITableViewCell {
     }
     
     func setRetweetButtonImage() {
-        if tweet.isRetweeted == true {
+        if tweet.isCurrUserRetweeted == true {
             retweetButton.setImage(UIImage(named: "retweet-true"), forState: UIControlState.Normal)
         } else {
             retweetButton.setImage(UIImage(named: "retweet"), forState: UIControlState.Normal)
@@ -135,6 +135,8 @@ class tweetCell: UITableViewCell {
             formattedDateString = String(elapsedTimeComponents.minute) + " min"
         } else if elapsedTimeComponents.second >= 1 {
             formattedDateString = String(elapsedTimeComponents.second) + " s"
+        } else {
+            formattedDateString = "now"
         }
         return formattedDateString
         
