@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, tweetCellDelegate, UIScrollViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, tweetCellDelegate, UIScrollViewDelegate, NewTweetViewControllerDelegate {
     
     var tweets: [Tweet]?
     var retweetStates = [Int: Bool]()
@@ -17,6 +17,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var isMoreDataLoading = false
     
     var lastTweetId: Int?
+    var replyUser: User?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -57,12 +58,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         cell.tweet = tweets![indexPath.row]
         cell.delegate = self
         
-//        cell.isRetweeted = tweets![indexPath.row].isRetweeted ?? false
-//        cell.setRetweetButtonImage()
-//        
-//        cell.isFavorited = tweets![indexPath.row].isFavorited ?? false
-//        cell.setFavoriteButtonImage()
-        
         return cell
     }
     
@@ -74,6 +69,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
     }
+    
     
     // MARK: - TweetCell Delegate Methods
     func tweetedCell(tweetedCell: tweetCell, retweetButtonPressed value: Bool) {
@@ -97,6 +93,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
     }
+    
+    func tweetedCell(tweetedCell: tweetCell, replyButtonPressed value: Bool) {
+        replyUser = tweetedCell.tweet.user
+        self.performSegueWithIdentifier("newTweetSegue", sender: self)
+    }
+    
+    
     // MARK: - Refresh Methods
     
     // Makes a network request to get updated data
@@ -140,16 +143,32 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "newTweetsSegue" {
-         //   let navigationcontroller = segue.destinationViewController as! UINavigationController
+        if segue.identifier == "newTweetSegue" {
+            let navigationcontroller = segue.destinationViewController as! UINavigationController
+            let newTweetViewController = navigationcontroller.topViewController as! NewTweetViewController
+            if replyUser != nil {
+                newTweetViewController.newTweet = "@" + (replyUser?.screenname)! + " "
+            }
+            newTweetViewController.delegate = self
         } else if segue.identifier == "tweetDetailSegue" {
             let indexPath: NSIndexPath = tableView.indexPathForSelectedRow!
             let detailViewController = segue.destinationViewController as! TweetDetailViewController
             detailViewController.tweet = self.tweets![indexPath.row]
-        } else if segue.identifier == "replyTweetSegue" {
-            
         }
     }
-
-
+    
+    // MARK: - NewTweetViewController Delegate Method
+    func newTweetViewController(newTweetViewController: NewTweetViewController, didCreateTweet newTweet: String) {
+        TwitterClient.sharedInstance.tweetWithCompletion(["status": newTweetViewController.newTweet!]) { (tweet, error) -> () in
+            if tweet != nil {
+                self.tweets?.insert(tweet!, atIndex: 0)
+                self.tableView.reloadData()
+                print("new tweet created")
+                
+            }
+        }
+    }
 }
+
+
+

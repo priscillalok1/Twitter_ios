@@ -8,15 +8,21 @@
 
 import UIKit
 
+@objc protocol NewTweetViewControllerDelegate {
+    optional func newTweetViewController(newTweetViewController: NewTweetViewController, didCreateTweet newTweetString: String)
+}
+
 class NewTweetViewController: UIViewController, UITextViewDelegate {
 
+    weak var delegate: NewTweetViewControllerDelegate?
+    
     @IBOutlet weak var newTweetText: UITextView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var thumImageView: UIImageView!
     @IBOutlet weak var charCountLabel: UILabel!
     
-    var newTweet: String!
+    var newTweet:String?
     
     var charCount: Int?
     var isReplyTweet: Bool?
@@ -28,14 +34,23 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         nameLabel.text = User.currentUser?.name
         usernameLabel.text = User.currentUser?.screenname
         thumImageView.setImageWithURL(NSURL(string: (User.currentUser?.profileImageUrl)!)!)
-        charCount = 140
+        if newTweet == nil {
+            charCount = 140
+        } else {
+            charCount = 140 - (newTweet?.characters.count)!
+        }
+//        charCount = 140 - (newTweet?.characters.count)!
         charCountLabel.text = String(charCount!)
         newTweetText.becomeFirstResponder()
-        newTweetText.text = ""
+        if newTweet == nil {
+            newTweetText.text = ""
+        } else {
+            newTweetText.text = newTweet
+        }
+        
         
         newTweetText.delegate = self
 
-      //  newTweetText.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +62,13 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         let currCharCount = newTweetText.text.characters.count
         charCount = 140-currCharCount
         charCountLabel.text = String(charCount!)
+        newTweet = newTweetText.text
+        
+        if charCount < 0 {
+            newTweetText.editable = false
+        } else {
+            newTweetText.editable = true
+        }
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {
@@ -55,8 +77,18 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func tweetButtonClicked(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
-        newTweet = newTweetText.text
+        self.delegate?.newTweetViewController!(self, didCreateTweet: newTweet!)
+//        TwitterClient.sharedInstance.tweetWithCompletion(["status": self.newTweet!]) { (tweet, error) -> () in
+//            if tweet != nil {
+//                if self.isReplyTweet == false {
+//                    
+//                }
+//                print("new tweet created")
+//                //do something with newly created reply tweet
+//            }
+//        }
     }
+    
     /*
     // MARK: - Navigation
 

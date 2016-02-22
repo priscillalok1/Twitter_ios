@@ -110,9 +110,6 @@
                                                         <constraint firstAttribute="width" constant="25" id="dax-8a-6OJ"/>
                                                     </constraints>
                                                     <state key="normal" image="reply"/>
-                                                    <connections>
-                                                        <segue destination="Sxw-HJ-8gt" kind="modal" identifier="replyTweetSegue" id="QZO-ea-9T3"/>
-                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQR-KD-BK3">
                                                     <rect key="frame" x="136" y="102" width="27" height="22"/>
@@ -179,6 +176,7 @@
                                             <outlet property="favoriteButton" destination="FZv-2L-yCr" id="d3q-3p-WJb"/>
                                             <outlet property="favoriteCountLabel" destination="P6m-NN-qU9" id="Aop-kY-aL6"/>
                                             <outlet property="nameLabel" destination="igK-8f-vww" id="2Ru-aB-S9d"/>
+                                            <outlet property="replyButton" destination="PQL-rP-7Wq" id="kj6-Dr-sKx"/>
                                             <outlet property="retweetButton" destination="GQR-KD-BK3" id="UtQ-xv-5Hw"/>
                                             <outlet property="retweetCountLabel" destination="pbE-Ke-Clu" id="5Bd-ZC-EK6"/>
                                             <outlet property="retweetLabel" destination="eY5-d0-bxz" id="HKF-Tx-jMO"/>
@@ -264,7 +262,7 @@
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="New Tweet!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xz2-Lp-MAo">
                                 <rect key="frame" x="15" y="141" width="290" height="205"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -275,6 +273,7 @@
                             <constraint firstItem="7Ax-UR-PDT" firstAttribute="leading" secondItem="LWe-23-Nxw" secondAttribute="trailing" constant="8" id="5ER-Kk-0xm"/>
                             <constraint firstItem="YVN-VP-xQZ" firstAttribute="centerY" secondItem="qUN-Vc-ZVf" secondAttribute="centerY" id="5f8-fU-4Qf"/>
                             <constraint firstItem="7Ax-UR-PDT" firstAttribute="leading" secondItem="bng-kf-jHg" secondAttribute="leading" id="6fr-kR-ef3"/>
+                            <constraint firstItem="YVN-VP-xQZ" firstAttribute="trailing" secondItem="xz2-Lp-MAo" secondAttribute="trailing" id="8XO-gS-85S"/>
                             <constraint firstItem="bng-kf-jHg" firstAttribute="top" secondItem="Zme-Js-rOf" secondAttribute="bottom" constant="14" id="HIE-ro-FDf"/>
                             <constraint firstItem="YVN-VP-xQZ" firstAttribute="leading" secondItem="qUN-Vc-ZVf" secondAttribute="trailing" constant="3" id="JUL-4x-6mi"/>
                             <constraint firstItem="YVN-VP-xQZ" firstAttribute="leading" secondItem="qUN-Vc-ZVf" secondAttribute="trailing" constant="3" id="Kcm-9Q-1fZ"/>
@@ -282,7 +281,6 @@
                             <constraint firstItem="LWe-23-Nxw" firstAttribute="top" secondItem="Zme-Js-rOf" secondAttribute="bottom" constant="14" id="Qlz-QO-exO"/>
                             <constraint firstItem="LWe-23-Nxw" firstAttribute="leading" secondItem="grk-zR-igQ" secondAttribute="leading" constant="15" id="V1q-5O-xAM"/>
                             <constraint firstItem="7Ax-UR-PDT" firstAttribute="top" secondItem="bng-kf-jHg" secondAttribute="bottom" constant="5" id="Zx7-Ka-jj2"/>
-                            <constraint firstAttribute="trailing" secondItem="YVN-VP-xQZ" secondAttribute="trailing" constant="15" id="clb-dK-9FG"/>
                             <constraint firstItem="YVN-VP-xQZ" firstAttribute="top" secondItem="Zme-Js-rOf" secondAttribute="bottom" constant="61" id="h3l-Nh-Scn"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7Ax-UR-PDT" secondAttribute="trailing" constant="15" id="hbL-y4-9OO"/>
                             <constraint firstItem="xz2-Lp-MAo" firstAttribute="top" secondItem="YVN-VP-xQZ" secondAttribute="bottom" constant="2" id="pMY-s2-82N"/>
@@ -549,7 +547,4 @@
         <image name="retweet" width="32" height="32"/>
         <image name="star-unselected" width="32" height="32"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="QZO-ea-9T3"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -20,6 +20,7 @@ extension String {
 @objc protocol tweetCellDelegate {
     optional func tweetedCell (tweetedCell: tweetCell, retweetButtonPressed value:Bool)
     optional func tweetedCell (tweetedCell: tweetCell, favoriteButtonPressed value:Bool)
+    optional func tweetedCell (tweetedCell: tweetCell, replyButtonPressed value: Bool)
 }
 
 class tweetCell: UITableViewCell {
@@ -36,6 +37,7 @@ class tweetCell: UITableViewCell {
     
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var replyButton: UIButton!
     
     weak var delegate: tweetCellDelegate?
     
@@ -80,8 +82,7 @@ class tweetCell: UITableViewCell {
         
         retweetButton.addTarget(self, action: "retweetButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
         favoriteButton.addTarget(self, action: "favoriteButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        // Initialization code
+        replyButton.addTarget(self, action: "replyButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -113,6 +114,10 @@ class tweetCell: UITableViewCell {
         } else {
             favoriteButton.setImage(UIImage(named: "star-unselected"), forState: UIControlState.Normal)
         }
+    }
+    
+    func replyButtonPressed() {
+        delegate?.tweetedCell!(self, replyButtonPressed: replyButton.touchInside)
     }
     
     func formattedCreatedAtString (date: NSDate) -> String {

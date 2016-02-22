@@ -27,7 +27,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     func homeTimelineWithCompletion(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
         GET("1.1/statuses/home_timeline.json", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
-            print("home timeline:\(response)")
+//            print("home timeline:\(response)")
             let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
             completion(tweets: tweets, error: nil)
             }, failure: { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -39,7 +39,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     func retweetWithCompletion(id: NSInteger?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
         let urlString: String = "1.1/statuses/retweet/" + String(id!) + ".json"
         POST(urlString, parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
-            print("\(response)")
+//            print("\(response)")
             let tweet = Tweet(dictionary: response as! NSDictionary)
             completion(tweet: tweet, error: nil)
             }, failure: { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -58,8 +58,30 @@ class TwitterClient: BDBOAuth1SessionManager {
                 completion(tweet: nil, error: error)
         })
     }
+    
+//    func tweetWithCompletion(params: NSDictionary?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+//        let urlString: String = "1.1/statuses/update.json?"
+//        POST(urlString, parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+//            <#code#>
+//            }, { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+//                print("error tweeting")
+//                completion(tweet: nil, error: error)
+//        })
+//    }
 
     
+    func tweetWithCompletion(params: NSDictionary?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        let urlString: String = "1.1/statuses/update.json"
+        POST(urlString, parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            let tweet = Tweet(dictionary: response as! NSDictionary)
+            completion(tweet: tweet, error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("error posting reply tweeet")
+                completion(tweet: nil, error: error)
+        })
+    }
+    
+
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {
         loginCompletion = completion
         
