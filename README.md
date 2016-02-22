@@ -31,7 +31,7 @@ Here's a walkthrough of implemented user stories:
 
 Note: Simulation bug prevents some tableView lines from displaying without proper scale and resolution
 
-![Video Walkthrough](twitterGiphy_2.gif)
+![Video Walkthrough](twitterGiphy.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
